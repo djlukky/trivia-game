@@ -7,22 +7,22 @@ Configurations possible:
   - Marks per correct answer
   
 # Android Screenshots
-Splash Screen
+Splash Screen  
 ![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/1_splash.png)
 
-Home Screen
+Home Screen  
 ![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/2_home.png)
 
-Loading Screen
+Loading Screen  
 ![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/3_loading.png)
 
-Quiz Screen
+Quiz Screen  
 ![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/4_quiz.png)
 
-Results Screen Top
+Results Screen Top  
 ![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/5_results_1.png)
 
-Results Screen Bottom
+Results Screen Bottom  
 ![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/5_results_2.png)
 
 # Assumptions
@@ -35,8 +35,8 @@ Clone the repository into an empty folder on your local machine.
 # Add node_modules
 Run the following command from your project folder to install node_modules  
 `npm install` OR  
-`yarn`
-followed by
+`yarn`  
+followed by  
 `react-native link`
 
 # Changing the default configuration settings
