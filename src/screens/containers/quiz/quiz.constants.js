@@ -1,0 +1,2 @@
+export const SAVE_ANSWER = 'SAVE_ANSWER';
+export const RESET_CURRENT_INDEX = 'RESET_CURRENT_INDEX';
