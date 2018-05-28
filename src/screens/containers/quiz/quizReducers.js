@@ -1,14 +1,13 @@
 import * as constants from "./quiz.constants";
 
 export const _INITIAL_STATE_ = {
-  loadingIndicator: false,
   trivia_answers: [],
   current_index: 0
 };
 
-export default function(state: any = _INITIAL_STATE_, action: Function) {
+export default function (state: any = _INITIAL_STATE_, action: Function) {
   switch (action.type) {
-    case constants.SAVE_ANSWER: 
+    case constants.SAVE_ANSWER:
       return {
         ...state,
         trivia_answers: [...state.trivia_answers, {
@@ -24,6 +23,6 @@ export default function(state: any = _INITIAL_STATE_, action: Function) {
         trivia_answers: []
       };
     default:
-      return state; 
+      return state;
   }
 }

@@ -1,6 +1,6 @@
 import { ToastAndroid } from 'react-native';
 import * as networkConstants from './network.constants';
-import {store} from '../boot/configureStore';
+import { store } from '../boot/configureStore';
 
 export default function fetchCustom(url, initObject) {
     return new Promise((resolve, reject) => {
@@ -15,14 +15,14 @@ export default function fetchCustom(url, initObject) {
         var timer1 = setTimeout(() => {
             reject(new Error("timeout"))
         }, networkConstants.TIMEOUT);
-        console.log('########################## FETCH REQUEST #########################');
-        console.log('URL: '+ url);
-        console.log('Request: ' + JSON.stringify(initObject));
+        //console.log('########################## FETCH REQUEST #########################');
+        //console.log('URL: '+ url);
+        //console.log('Request: ' + JSON.stringify(initObject));
         fetch(url, initObject)
             .then(response => {
-                console.log('########################## FETCH RESPONSE #########################');
-                console.log('Response: '+JSON.stringify(response));
-                if (response.status !== 200){
+                //console.log('########################## FETCH RESPONSE #########################');
+                //console.log('Response: '+JSON.stringify(response));
+                if (response.status !== 200) {
                     clearTimeout(timer1);
                     return;
                 }
@@ -30,13 +30,13 @@ export default function fetchCustom(url, initObject) {
                 clearTimeout(timer1);
             })
             .catch(error => {
-                console.log('########################## FETCH ERROR #########################');
-                console.log(error);
+                //console.log('########################## FETCH ERROR #########################');
+                //console.log(error);
                 ToastAndroid.showWithGravity(
                     'Sorry, something went wrong: ' + error,
                     ToastAndroid.SHORT,
                     ToastAndroid.BOTTOM
-                  );
+                );
                 clearTimeout(timer1);
             });
     })

@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import { responsiveFontSize, responsiveWidth, responsiveHeight} from 'react-native-responsive-dimensions';
+import { StyleSheet, Dimensions } from 'react-native';
+import { responsiveFontSize, responsiveWidth, responsiveHeight } from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   contents: {
-    backgroundColor: "#EAEAEA", 
-    alignItems: "center", 
+    backgroundColor: "#EAEAEA",
+    alignItems: "center",
     justifyContent: "center"
   },
   header: {
-    alignItems: "center", 
+    alignItems: "center",
     justifyContent: "center"
   },
   text1: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E13E2D',
     borderRadius: responsiveWidth(2),
     elevation: 3,
-    padding: 10,
+    justifyContent: 'center',
     marginTop: responsiveHeight(7),
     marginBottom: responsiveHeight(5)
   },
@@ -53,9 +53,14 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(2.1),
     fontWeight: '200',
     textAlign: 'left',
-    /* marginTop: responsiveHeight(2),
-    marginBottom: responsiveHeight(2), */
     opacity: 0.75
+  },
+  correctAnswer: {
+    fontFamily: 'OpenSans-Regular',
+    fontSize: responsiveFontSize(1.6),
+    fontWeight: '200',
+    textAlign: 'center',
+    marginTop: responsiveHeight(2)
   },
   resultCard: {
     flex: 0,
@@ -64,6 +69,7 @@ const styles = StyleSheet.create({
     width: responsiveWidth(90),
     marginTop: responsiveHeight(2),
     marginBottom: responsiveHeight(2),
+    borderWidth: 1,
     borderRadius: responsiveWidth(3),
     backgroundColor: "#DCDADA",
     elevation: 3,

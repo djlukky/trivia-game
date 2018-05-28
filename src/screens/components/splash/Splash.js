@@ -3,8 +3,8 @@ import { View, Image, NetInfo } from "react-native";
 import { NavigationActions, StackActions } from "react-navigation";
 import styles from "./styles/SplashStyles";
 
-export default class Splash extends React.Component <> {
-  
+export default class Splash extends React.Component<> {
+
   constructor(props) {
     super(props);
   }

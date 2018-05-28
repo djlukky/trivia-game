@@ -8,9 +8,7 @@ export function beginRequest(beginData: Object) {
     homeApi
       .getTriviaQuestions(beginData)
       .then(response => {
-        console.log(response);
-        if (response.response_code === 0){
-          console.log ('####Response: ', response);
+        if (response.response_code === 0) {
           dispatch(beginSuccess(response.results));
         } else {
           dispatch(beginFailure('Sorry, something went wrong!'));
@@ -20,9 +18,9 @@ export function beginRequest(beginData: Object) {
         dispatch(beginFailure("Sorry, something went wrong: " + error));
       });
   };
- }
+}
 
- export function beginSuccess(beginResponse: Object) {
+export function beginSuccess(beginResponse: Object) {
   return {
     type: constants.BEGIN_SUCCESS,
     beginResponse,

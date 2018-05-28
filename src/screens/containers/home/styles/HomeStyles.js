@@ -1,22 +1,26 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import { responsiveFontSize, responsiveWidth, responsiveHeight} from 'react-native-responsive-dimensions';
+import { StyleSheet, Dimensions } from 'react-native';
+import { responsiveFontSize, responsiveWidth, responsiveHeight } from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center'
+  },
+  loadingContainer: {
+    flex: 1,
     alignItems: 'center',
-    //justifyContent: 'center'
+    justifyContent: 'center'
   },
   contents: {
-    backgroundColor: "#EAEAEA", 
-    alignItems: "center", 
+    backgroundColor: "#EAEAEA",
+    alignItems: "center",
     justifyContent: "center"
   },
   card: {
     flex: 0.5,
     backgroundColor: '#DCDADA',
     elevation: 3,
-    alignItems: "center", 
+    alignItems: "center",
     justifyContent: "center",
     marginTop: responsiveHeight(10),
     marginLeft: responsiveWidth(10),
@@ -25,7 +29,7 @@ const styles = StyleSheet.create({
     borderRadius: responsiveWidth(2)
   },
   header: {
-    alignItems: "center", 
+    alignItems: "center",
     justifyContent: "center"
   },
   text1: {
@@ -52,14 +56,12 @@ const styles = StyleSheet.create({
     color: '#FFFFFF'
   },
   buttonContainer: {
-    position: 'absolute',
-    bottom: responsiveHeight(2),
     height: responsiveHeight(8),
     width: responsiveWidth(50),
     backgroundColor: '#E13E2D',
     borderRadius: responsiveWidth(2),
     elevation: 3,
-    padding: 10
+    justifyContent: 'center'
   }
 });
 

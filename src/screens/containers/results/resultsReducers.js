@@ -1,16 +1,14 @@
 import * as constants from "./results.constants";
 
 export const _INITIAL_STATE_ = {
-  loadingIndicator: false,
   playAgainPressed: false
 };
 
-export default function(state: any = _INITIAL_STATE_, action: Function) {
+export default function (state: any = _INITIAL_STATE_, action: Function) {
   switch (action.type) {
     case constants.PLAY_AGAIN_REQUEST:
       return {
         ...state,
-        loadingIndicator: action.loadingIndicator,
         playAgainPressed: action.playAgainPressed
       };
     case constants.RESET_PLAY_AGAIN_PRESSED:

@@ -18,7 +18,6 @@ export class QuizComponent extends Component<{}> {
       ref: null,
       isTimerRunning: false
     }
-    //this.onSelectOption = this.onSelectOption.bind(this);
   }
 
   componentWillMount() {
@@ -75,20 +74,17 @@ export class QuizComponent extends Component<{}> {
   }
 
   onSelectOption(option) {
-    console.log("Option ", option);
-    const {trivia_questions, current_index, saveAnswerAndEvaluate} = this.props;
+    const { trivia_questions, current_index, saveAnswerAndEvaluate } = this.props;
     const correct_option = trivia_questions[current_index].correct_answer;
-    const isCorrectOption = (option === correct_option); 
-    console.log("User answer ", option);
+    const isCorrectOption = (option === correct_option);
     saveAnswerAndEvaluate(option.toString(), isCorrectOption);
   }
 
   getOptions() {
-    const {trivia_questions, current_index} = this.props;
+    const { trivia_questions, current_index } = this.props;
     var options = trivia_questions[current_index].incorrect_answers;
     options.push(trivia_questions[current_index].correct_answer);
     options = this.shuffle(options);
-    console.log('options: ', options);
     return options;
   }
 
@@ -104,33 +100,34 @@ export class QuizComponent extends Component<{}> {
     return options;
   }
 
-  renderOption  = (option, index) => {
+  renderOption = (option, index) => {
     return (
       <TouchableOpacity onPress={() => this.onSelectOption(option)}
-                        style={styles.optionContainer}
-                        key={option}>
+        style={styles.optionContainer}
+        key={option}>
         <Text style={styles.option} >{entities.decodeHTML(option)}</Text>
       </TouchableOpacity>
     );
   }
 
   render() {
-    const {trivia_questions, current_index} = this.props;
+    const { trivia_questions, current_index } = this.props;
     if (current_index >= trivia_questions.length)
       return null;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <AppHeader title1={trivia_questions[current_index].category}/>
+          <AppHeader title1={trivia_questions[current_index].category} />
         </View>
         <View style={styles.contents}>
+          <Text style={styles.pageno}>Question {current_index + 1} of {trivia_questions.length}</Text>
           <View style={styles.card}>
             <Text style={styles.question}>{entities.decodeHTML(trivia_questions[current_index].question)}</Text>
           </View>
           <View>
             {this.getOptions().map(this.renderOption)}
           </View>
-          <Text style={styles.pageno}>{current_index + 1} of {trivia_questions.length}</Text>
+          <Text style={styles.pageno}>Question {current_index + 1} of {trivia_questions.length}</Text>
         </View>
       </View>
     );

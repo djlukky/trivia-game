@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import { responsiveFontSize, responsiveWidth, responsiveHeight} from 'react-native-responsive-dimensions';
+import { StyleSheet, Dimensions } from 'react-native';
+import { responsiveFontSize, responsiveWidth, responsiveHeight } from 'react-native-responsive-dimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,33 +7,33 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   contents: {
-    backgroundColor: "#EAEAEA", 
-    alignItems: "center", 
+    backgroundColor: "#EAEAEA",
+    alignItems: "center",
     justifyContent: "center"
   },
   card: {
-    backgroundColor: '#DCDADA',
+    backgroundColor: '#F5F3F3',
     height: responsiveHeight(20),
     width: responsiveWidth(80),
-    elevation: 3,
-    alignItems: "center", 
+    elevation: 1,
+    alignItems: "center",
     justifyContent: "center",
     marginTop: responsiveHeight(5),
     marginBottom: responsiveHeight(5),
     marginLeft: responsiveWidth(5),
     marginRight: responsiveWidth(5),
-    padding: responsiveHeight(5),
+    padding: responsiveWidth(5),
     borderRadius: responsiveWidth(2)
   },
   header: {
-    alignItems: "center", 
+    alignItems: "center",
     justifyContent: "center"
   },
   question: {
     fontFamily: 'OpenSans-Regular',
     fontSize: responsiveFontSize(2.5),
     fontWeight: '200',
-    textAlign: 'center',
+    textAlign: 'left',
     opacity: 1
   },
   pageno: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     textAlign: 'center',
     opacity: 1,
-    marginTop: 5
+    marginTop: responsiveHeight(3)
   },
   option: {
     fontFamily: 'OpenSans-Regular',
@@ -56,15 +56,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#DCDADA',
     borderRadius: responsiveWidth(2),
     elevation: 3,
-    padding: 10,
+    justifyContent: 'center',
+    padding: responsiveWidth(5),
     marginBottom: responsiveHeight(3)
-    /* shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowRadius: 10,
-    shadowOpacity: 0.25 */
   }
 });
 

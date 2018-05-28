@@ -3,7 +3,7 @@ import {
   Text, View, TouchableOpacity, ActivityIndicator, ToastAndroid,
   BackHandler, NetInfo
 } from "react-native";
-import {BubblesLoader} from 'react-native-indicator';
+import { BubblesLoader } from 'react-native-indicator';
 import AppHeader from "../../../components/appheader/AppHeader";
 import styles from "../styles/HomeStyles";
 import * as config from '../../../../AppConfig';
@@ -67,7 +67,6 @@ export class HomeComponent extends Component<{}> {
   componentDidUpdate() {
     const { beginPressed, resetBeginPressedFlag, navigation } = this.props;
     if (beginPressed) {
-      //navigation.navigate("Quiz");
       const resetAction = StackActions.reset({
         index: 0,
         actions: [NavigationActions.navigate({ routeName: "Quiz" })]
@@ -87,12 +86,12 @@ export class HomeComponent extends Component<{}> {
   }
 
   render() {
-    const {loadingIndicator} = this.props;
+    const { loadingIndicator } = this.props;
     if (loadingIndicator) {
       return (
-        <View style={styles.container}>
+        <View style={styles.loadingContainer}>
           <BubblesLoader size={40}
-                        color="#E13E2D"/>
+            color="#E13E2D" />
         </View>
       );
     }
@@ -104,11 +103,11 @@ export class HomeComponent extends Component<{}> {
         </View>
         <View style={styles.contents}>
           <View style={styles.card}>
-            <Text style={styles.text1}>You will be presented with 10 True or False questions.</Text>
+            <Text style={styles.text1}>You will be presented with {config.totalQuestions} {(config.selectedTriviaType === config.triviaType.BOOLEAN) ? "True or False" : "Multiple Choice"} questions.</Text>
           </View>
           <Text style={styles.text2}>Can you score 100%?</Text>
           <TouchableOpacity onPress={this.onPressBegin}
-                            style={styles.buttonContainer}>
+            style={styles.buttonContainer}>
             <Text style={styles.begin} >BEGIN</Text>
           </TouchableOpacity>
         </View>

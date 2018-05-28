@@ -7,7 +7,7 @@ export const _INITIAL_STATE_ = {
   error: ''
 };
 
-export default function(state: any = _INITIAL_STATE_, action: Function) {
+export default function (state: any = _INITIAL_STATE_, action: Function) {
   switch (action.type) {
     case constants.BEGIN_SUCCESS:
       return {
@@ -16,7 +16,7 @@ export default function(state: any = _INITIAL_STATE_, action: Function) {
         beginPressed: action.beginPressed,
         trivia_questions: action.beginResponse
       };
-    case constants.BEGIN_FAILURE: 
+    case constants.BEGIN_FAILURE:
       return {
         ...state,
         loadingIndicator: action.loadingIndicator,
@@ -28,7 +28,7 @@ export default function(state: any = _INITIAL_STATE_, action: Function) {
         ...state,
         loadingIndicator: action.loadingIndicator
       };
-    case constants.RESET_BEGIN_PRESSED_FLAG: 
+    case constants.RESET_BEGIN_PRESSED_FLAG:
       return {
         ...state,
         beginPressed: false

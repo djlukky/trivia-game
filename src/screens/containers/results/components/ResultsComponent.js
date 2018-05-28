@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, ActivityIndicator, ToastAndroid,
-          BackHandler, NetInfo, FlatList, ScrollView } from "react-native";
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {
+  Text, View, TouchableOpacity, ToastAndroid,
+  BackHandler, NetInfo, ScrollView, StyleSheet
+} from "react-native";
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import entities from 'entities';
-import {Grid, Col} from 'react-native-easy-grid';
+import { Grid, Col } from 'react-native-easy-grid';
 import AppHeader from "../../../components/appheader/AppHeader";
 import styles from "../styles/ResultsStyles";
 import * as config from '../../../../AppConfig';
@@ -20,7 +22,6 @@ export class ResultsComponent extends Component<{}> {
       isTimerRunning: false
     }
     this.getScore = this.getScore.bind(this);
-    //this.renderResultItem = this.renderResultItem.bind(this);
     this.onPressPlayAgain = this.onPressPlayAgain.bind(this);
   }
 
@@ -67,8 +68,8 @@ export class ResultsComponent extends Component<{}> {
   }
 
   componentDidUpdate() {
-    const { playAgainPressed, resetCurrentIndex, resetQuestions, 
-            resetBeginPressedFlag, navigation } = this.props;
+    const { playAgainPressed, resetCurrentIndex, resetQuestions,
+      resetBeginPressedFlag, navigation } = this.props;
     if (playAgainPressed) {
       const resetAction = StackActions.reset({
         index: 0,
@@ -87,49 +88,53 @@ export class ResultsComponent extends Component<{}> {
   }
 
   getScore() {
-    const {trivia_answers} = this.props;
+    const { trivia_answers } = this.props;
     var score = 0;
     trivia_answers.forEach(answer => {
       if (answer.isCorrect)
         score += config.marksPerQuestion;
     });
-    score = '' + score + ' / ' + trivia_answers.length ;
-    console.log('$$$$$$$$$Score: ', score);
+    score = '' + score + ' / ' + trivia_answers.length;
     return score;
   }
 
   renderResultItem = (item, index) => {
     return (
-        <Grid style={styles.resultCard} key={item.itemQuestion}>
-          <Col size={15}>
-            <Icon name={item.itemIcon} size={responsiveHeight(5)}/>
-          </Col>
-          <Col size={85}>
-            <Text style={styles.itemResultText}>{item.itemQuestion}</Text>
-          </Col>
-        </Grid>
+      <Grid style={[styles.resultCard, {borderColor: item.itemBorderColor}]}
+        key={item.itemQuestion}>
+        <Col size={15}>
+          <Icon name={item.itemIcon} size={responsiveHeight(5)} color={item.itemIconColor}/>
+        </Col>
+        <Col size={85}>
+          <Text style={styles.itemResultText}>{item.itemQuestion}</Text>
+          <Text style={styles.correctAnswer}>Correct Answer: {item.itemCorrectAnswer}</Text>
+        </Col>
+      </Grid>
     );
   }
 
   render() {
-    const {trivia_questions, trivia_answers} = this.props;
+    const { trivia_questions, trivia_answers } = this.props;
     const results_data = [];
     for (var index = 0; index < trivia_questions.length; index++) {
       results_data[index] = {
-        itemIcon: trivia_answers[index].isCorrect ? 'add-circle-outline' : 'remove-circle-outline',
-        itemQuestion: entities.decodeHTML(trivia_questions[index].question)
+        itemIcon: trivia_answers[index].isCorrect ? 'check' : 'close',
+        itemIconColor: trivia_answers[index].isCorrect ? '#008000' : '#FF0000',
+        itemQuestion: entities.decodeHTML(trivia_questions[index].question),
+        itemBorderColor: trivia_answers[index].isCorrect ? '#008000' : '#FF0000',
+        itemCorrectAnswer: trivia_questions[index].correct_answer
       }
     }
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <AppHeader title1="You scored"
-            title2={this.getScore()}/>
+            title2={this.getScore()} />
         </View>
         <ScrollView contentContainerStyle={styles.contents}>
           {results_data.map(this.renderResultItem)}
           <TouchableOpacity onPress={this.onPressPlayAgain}
-                            style={styles.buttonContainer}>
+            style={styles.buttonContainer}>
             <Text style={styles.playagain} >PLAY AGAIN?</Text>
           </TouchableOpacity>
         </ScrollView>
