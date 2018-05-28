@@ -5,6 +5,25 @@ Configurations possible:
   - Type of questions: True/False, MCQ
   - Difficulty level: Easy, Medium, Hard
   - Marks per correct answer
+  
+# Android Screenshots
+Splash Screen
+![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/1_splash.png)
+
+Home Screen
+![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/2_home.png)
+
+Loading Screen
+![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/3_loading.png)
+
+Quiz Screen
+![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/4_quiz.png)
+
+Results Screen Top
+![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/5_results_1.png)
+
+Results Screen Bottom
+![alt text](https://github.com/harshadabhanose/trivia-game/blob/master/Demo%20Screenshots/5_results_2.png)
 
 # Assumptions
   - Play Again CTA will start the game again with a new set of questions
