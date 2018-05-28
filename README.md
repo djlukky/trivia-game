@@ -1,8 +1,10 @@
 # trivia-game
-A simple, 10 question, true or false, trivia app with configurable
+A simple trivia app using React Native
+Configurations possible:
   - No. of questions
   - Type of questions: True/False, MCQ
   - Difficulty level: Easy, Medium, Hard
+  - Marks per correct answer
 
 # Assumptions
   - Play Again CTA will start the game again with a new set of questions
@@ -16,7 +18,7 @@ Run the following command from your project folder to install node_modules
 `npm install` OR  
 `yarn`
 followed by
-`react-native link'
+`react-native link`
 
 # Changing the default configuration settings
 In the `src/AppConfig.js` file, edit following parameters to change the default settings for no. of questions, difficulty, type of questions and marks per question
