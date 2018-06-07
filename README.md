@@ -36,7 +36,10 @@ Clone the repository into an empty folder on your local machine.
 Run the following command from your project folder to install node_modules  
 `npm install` OR  
 `yarn`  
-followed by  
+Add any missing Android and / or iOS files from the template by running
+`react-native update`
+Do not replace the old files with new.
+Finally run   
 `react-native link`
 
 # Changing the default configuration settings
